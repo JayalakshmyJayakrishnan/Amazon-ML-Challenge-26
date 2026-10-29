@@ -64,7 +64,7 @@ Our pipeline decouples the entity resolution task into a coarse-to-fine architec
 To reduce structural noise before embedding generation, input string fields undergo deterministic preprocessing:
 - **Unicode Standardization:** Canonical decomposition and recomposition via Unicode `NFKC` normalization and lowercasing.
 - **Lexical Canonicalization:** Standardizing address shorthand (e.g., `rd` $\rightarrow$ `road`, `ste` $\rightarrow$ `suite`) and corporate entity designation tokens (`corporation`/`incorporated` $\rightarrow$ `corp`/`inc`).
-- **Entity Feature Token Extraction:** Parsing standalone numeric patterns representing postal codes ($\mathbb{Z}_{postal} \in \mathbb{D}^{4..10}$) and building numbers ($\mathbb{Z}_{num} \in \mathbb{D}^{+}$).
+- **Entity Feature Token Extraction:** Parsing standalone numeric patterns representing postal codes ($\mathbb{Z}_{\text{postal}} \in \mathbb{D}^{4..10}$) and building numbers ($\mathbb{Z}_{\text{num}} \in \mathbb{D}^{+}$).
 
 ### Stage 1: Representation Learning & Candidate Retrieval
 To bypass $O(N^2)$ cross-comparisons, candidate pools are constructed using vector similarity search over dense representations:
